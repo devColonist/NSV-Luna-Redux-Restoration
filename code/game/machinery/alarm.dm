@@ -1893,7 +1893,6 @@ Code shamelessly copied from apc_frame
 						time += tp
 						time = min(max(round(time), 0), 120)
 		updateUsrDialog()
-
 		add_fingerprint(usr)
 	else
 		usr << browse(null, "window=partyalarm")

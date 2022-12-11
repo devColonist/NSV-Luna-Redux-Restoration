@@ -327,7 +327,7 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/print_flavor_text()
 	if(flavor_text && flavor_text != "")
 		var/msg = sanitize_uni(replacetext(flavor_text, "\n", " "))
-		if(lentext(msg) <= 40)
+		if(length(msg) <= 40)
 			return "\blue [msg]"
 		else
 			return "\blue [copytext(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>"
@@ -1034,6 +1034,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return paralysis
 
 
-/mob/proc/UpdateLuminosity()			//Не уверен, что требуется, но на всякий случай спиздил с ферна.
+/mob/proc/UpdateLuminosity()			// this was fucked to begin with - ГЌГҐ ГіГўГҐГ°ГҐГ­, Г·ГІГ® ГІГ°ГҐГЎГіГҐГІГ±Гї, Г­Г® Г­Г  ГўГ±ГїГЄГЁГ© Г±Г«ГіГ·Г Г© Г±ГЇГЁГ§Г¤ГЁГ« Г± ГґГҐГ°Г­Г .
 	SetLuminosity(LuminosityRed, LuminosityGreen, LuminosityBlue)
 	return 1
