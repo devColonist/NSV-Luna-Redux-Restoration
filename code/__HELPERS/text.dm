@@ -35,10 +35,10 @@
 	return t
 
 proc/sanitize_PDA(var/msg)
-	var/index = findtext(msg, "�")
+	var/index = findtext(msg, "ÿ")
 	while(index)
 		msg = copytext(msg, 1, index) + "&#1103;" + copytext(msg, index+1)
-		index = findtext(msg, "�")
+		index = findtext(msg, "ÿ")
 	index = findtext(msg, "&#255;")
 	while(index)
 		msg = copytext(msg, 1, index) + "&#1103;" + copytext(msg, index+1)
@@ -46,7 +46,7 @@ proc/sanitize_PDA(var/msg)
 	return msg
 
 //Removes a few problematic characters
-/proc/sanitize(var/t,var/list/repl_chars = list("\n"="#","\t"="#","�"="&#255;"))
+/proc/sanitize(var/t,var/list/repl_chars = list("\n"="#","\t"="#","ÿ"="&#255;"))
 	for(var/char in repl_chars)
 		var/index = findtext(t, char)
 		while(index)
@@ -54,7 +54,7 @@ proc/sanitize_PDA(var/msg)
 			index = findtext(t, char)
 	return strip_html_simple(t)
 
-/proc/sanitize_uni(var/t,var/list/repl_chars = list("�"="&#255;"))
+/proc/sanitize_uni(var/t,var/list/repl_chars = list("ÿ"="&#255;"))
 	for(var/char in repl_chars)
 		var/index = findtext(t, char)
 		while(index)
@@ -311,7 +311,7 @@ proc/checkhtml(var/t)
 		else if (a == 184)
 			t += ascii2text(168)
 		else t += ascii2text(a)
-	t = replacetext(t,"&#255;","�")
+	t = replacetext(t,"&#255;","ß")
 	return t
 
 
@@ -327,7 +327,7 @@ proc/checkhtml(var/t)
 	return t
 
 /proc/rhtml_encode(var/msg)
-	var/list/c = text2list(msg, "�")
+	var/list/c = text2list(msg, "ÿ")
 	if(c.len == 1)
 		c = text2list(msg, "&#255;")
 		if(c.len == 1)
@@ -342,7 +342,7 @@ proc/checkhtml(var/t)
 	return out
 
 /proc/rhtml_encode_paper(var/msg)
-	var/list/c = text2list(msg, "�")
+	var/list/c = text2list(msg, "ÿ")
 	if(c.len == 1)
 		c = text2list(msg, "&#1103;")
 		if(c.len == 1)
@@ -357,7 +357,7 @@ proc/checkhtml(var/t)
 	return out
 
 /proc/rhtml_decode(var/msg)
-	var/list/c = text2list(msg, "�")
+	var/list/c = text2list(msg, "ÿ")
 	if(c.len == 1)
 		c = text2list(msg, "&#255;")
 		if(c.len == 1)
@@ -372,7 +372,7 @@ proc/checkhtml(var/t)
 	return out
 
 /proc/rhtml_decode_paper(var/msg)
-	var/list/c = text2list(msg, "�")
+	var/list/c = text2list(msg, "ÿ")
 	if(c.len == 1)
 		c = text2list(msg, "&#1103;")
 		if(c.len == 1)

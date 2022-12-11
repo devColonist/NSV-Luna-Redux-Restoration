@@ -1034,6 +1034,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return paralysis
 
 
-/mob/proc/UpdateLuminosity()			//�� ������, ��� ���������, �� �� ������ ������ ������� � �����.
+/mob/proc/UpdateLuminosity()			// this was fucked to begin with - Íå óâåðåí, ÷òî òðåáóåòñÿ, íî íà âñÿêèé ñëó÷àé ñïèçäèë ñ ôåðíà.
 	SetLuminosity(LuminosityRed, LuminosityGreen, LuminosityBlue)
 	return 1
