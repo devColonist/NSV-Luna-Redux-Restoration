@@ -302,7 +302,7 @@ datum/preferences
 		dat += "<a href='?_src_=prefs;preference=reset_all'>Reset Setup</a>"
 		dat += "</center></body></html>"
 
-		var/datum/browser/popup = new(user, "preferences","perferences", 560, 580, src)
+		var/datum/browser/popup = new(user, "preferences","Preferences", 560, 580, src)
 		popup.set_content(dat)
 		popup.open()
 		//user << browse(dat, "window=preferences;size=560x580")
@@ -430,21 +430,21 @@ datum/preferences
 
 		HTML += "<a href=\"byond://?src=\ref[user];preference=records;task=med_record\">Medical Records</a><br>"
 
-		if(lentext(med_record) <= 40)
+		if(length(med_record) <= 40)
 			HTML += "[med_record]"
 		else
 			HTML += "[copytext(med_record, 1, 37)]..."
 
 		HTML += "<br><br><a href=\"byond://?src=\ref[user];preference=records;task=gen_record\">Employment Records</a><br>"
 
-		if(lentext(gen_record) <= 40)
+		if(length(gen_record) <= 40)
 			HTML += "[gen_record]"
 		else
 			HTML += "[copytext(gen_record, 1, 37)]..."
 
 		HTML += "<br><br><a href=\"byond://?src=\ref[user];preference=records;task=sec_record\">Security Records</a><br>"
 
-		if(lentext(sec_record) <= 40)
+		if(length(sec_record) <= 40)
 			HTML += "[sec_record]<br>"
 		else
 			HTML += "[copytext(sec_record, 1, 37)]...<br>"
